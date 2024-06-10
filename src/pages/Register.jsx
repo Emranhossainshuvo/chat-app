@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
@@ -21,7 +22,7 @@ const Register = () => {
                         </label>
                         <input className="h-10 bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Register" />
                     </form>
-                    <p className="text-center my-4">Already have an account?<span>Login</span></p>
+                    <p className="text-center my-4">Already have an account?<Link to={"/login"}>Login</Link></p>
                 </section>
             </section>
         </>
