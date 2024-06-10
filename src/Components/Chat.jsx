@@ -1,8 +1,8 @@
 
 const Chat = () => {
     return (
-        <div>
-            
+        <div className="chat" style={{flex: 2}}>
+            <h2>Chat</h2>
         </div>
     );
 };

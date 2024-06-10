@@ -1,8 +1,8 @@
 
 const Sidebar = () => {
     return (
-        <div>
-            
+        <div className="flex-1  bg-[#c4dfe6]">
+                <h3>Sidebar</h3>
         </div>
     );
 };
