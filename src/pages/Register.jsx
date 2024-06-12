@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('cllicke')
+    }
+
     return (
         <>
             {/* section that will hold everything in this file */}
@@ -9,7 +15,7 @@ const Register = () => {
                 <section className="bg-[#f1f1f2] w-[24%] rounded-xl">
                     <h3 className="text-center text-3xl font-semibold mb-2 mt-3">Talks chat</h3>
                     <p className="text-center mb-4 text-xl font-semibold">Register</p>
-                    <form className="flex flex-col gap-7 px-10">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-7 px-10">
                         <input placeholder="Name" className="h-10 ps-3 outline-none rounded-md" type="text" name="" id="" />
                         <input placeholder="Email" className="h-10 ps-3 outline-none rounded-md" type="email" name="" id="" />
                         <input placeholder="Password" className="h-10 ps-3 outline-none rounded-md" type="password" name="" id="" />
