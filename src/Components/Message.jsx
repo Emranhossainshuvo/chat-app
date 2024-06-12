@@ -9,7 +9,7 @@ const Message = () => {
             </div>
             <div className="messageContent max-w-[80%] flex flex-col gap-2">
                 <p className="bg-white p-5 rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg">Hello</p>
-                {/* <img className="w-[50%]" src="https://i.ibb.co/tCKkPkt/2147956506.jpg" alt="" /> */}
+                <img className="w-[50%]" src="https://i.ibb.co/tCKkPkt/2147956506.jpg" alt="" />
             </div>
         </div>
     );

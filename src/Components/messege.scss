@@ -4,10 +4,18 @@
 
     &.owner{
         flex-direction: row-reverse;
-        p{
-            background-color: #8da4f1;
-            color: white;
+        .messageContent{
+            align-items: flex-end;
+            p{
+                background-color: #8da4f1;
+                color: white;
             border-radius: 10px 0px 10px 10px;
+            }
         }
+    }
+}
+.messageContent{
+    p{
+        max-width: max-content;
     }
 }
