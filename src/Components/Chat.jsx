@@ -2,7 +2,7 @@ import Input from "./Input";
 import Messages from "./Messages";
 
 const Chat = () => {
-    return (
+    return ( 
         <div className="chat " style={{flex: 2}}>
             <div className="chatInfo justify-between p-[10px] text-gray-400 flex h-[50px] bg-[#5d597f] items-center">
                 <span>Jane</span>
