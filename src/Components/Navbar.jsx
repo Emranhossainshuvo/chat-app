@@ -2,7 +2,7 @@
 const Navbar = () => {
     return (
         <div className="flex navbar items-center bg-[#2e2d54] h-[50px] p-3 justify-between text-white">
-            <span className="tracking-tighter font-bold">
+            <span className="tracking-tighter hidden md:block font-bold">
                 Talks chat
             </span>
             <div className="flex gap-10">
