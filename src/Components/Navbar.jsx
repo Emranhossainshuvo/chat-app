@@ -1,7 +1,7 @@
 
 const Navbar = () => {
     return (
-        <div className="flex items-center bg-[#2e2d54] h-[50px] p-3 justify-between text-white">
+        <div className="flex navbar items-center bg-[#2e2d54] h-[50px] p-3 justify-between text-white">
             <span className="tracking-tighter font-bold">
                 Talks chat
             </span>
