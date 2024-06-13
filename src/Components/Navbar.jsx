@@ -1,3 +1,5 @@
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Navbar = () => {
     return (
@@ -8,7 +10,7 @@ const Navbar = () => {
             <div className="flex gap-10">
                 <img className="bg-white h-6 w-6 rounded-[50%] object-cover" src="https://i.ibb.co/DQR0TGc/126.jpg" alt="" />
                 <span>John</span>
-                <button className="bg-purple-800 text-gray-200 text-xs rounded-md border-none p-2">Log out</button>
+                <button onClick={() => signOut(auth)} className="bg-purple-800 text-gray-200 text-xs rounded-md border-none p-2">Log out</button>
             </div>
         </div>
     );
