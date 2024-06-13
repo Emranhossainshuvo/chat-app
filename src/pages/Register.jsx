@@ -1,10 +1,15 @@
-import {  createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Link } from "react-router-dom";
-import {auth} from "../firebase"
+import { auth, db, storage } from "../firebase"
+import { doc, setDoc } from "firebase/firestore";
+import { useState } from "react";
 
 const Register = () => {
 
-    const handleSubmit = (e) => {
+    const [err, setErr] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const displayName = e.target[0].value;
         const email = e.target[1].value;
@@ -12,18 +17,44 @@ const Register = () => {
         const file = e.target[3].files[0];
 
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+        try {
+
+            const res = await createUserWithEmailAndPassword(auth, email, password);
+
+
+            const storageRef = ref(storage, displayName);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on(
+
+                (error) => {
+                    setErr(true)
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                        await updateProfile(res.user, {
+                            displayName,
+                            photoURL: downloadURL
+                            })
+                                await setDoc(doc(db, "users", res.user.uid), {
+                                    uid: res.user.uid,
+                                    displayName,
+                                    email,
+                                    photoURL: downloadURL
+                                })
+
+                                await setDoc(doc(db, "userChats", res.user.uid), {
+                                    
+                                })
+
+                        });
+                }
+            );
+        } catch {
+            setErr(true)
+        }
+
 
 
 
@@ -49,6 +80,7 @@ createUserWithEmailAndPassword(auth, email, password)
                             </p>
                         </label>
                         <input className="h-10 cursor-pointer bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Register" />
+                        {err && <span className="text-red-600">Something went wrong</span>}
                     </form>
                     <p className="text-center my-4">Already have an account?<Link to={"/login"}>Login</Link></p>
                 </section>
