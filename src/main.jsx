@@ -8,6 +8,7 @@ import './index.css'
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import { AuthContextProvider } from './context/AuthContext';
 
 const router = createBrowserRouter([
   {
@@ -15,17 +16,19 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/register', 
+    path: '/register',
     element: <Register />
   },
   {
-    path: '/login', 
+    path: '/login',
     element: <Login />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   </React.StrictMode>,
 )
