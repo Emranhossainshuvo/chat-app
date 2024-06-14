@@ -2,6 +2,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
 
 
 const Chats = () => {
@@ -34,10 +35,10 @@ const Chats = () => {
             {Object.entries(chats)?.map(chat=> (
 
                 <div key={chat[0]} className="userchat p-3 flex items-center gap-10 cursor-pointer hover:bg-gray-600">
-                <img className="w-[50px] h-[50px] rounded-[50%] object-cover" src="https://i.ibb.co/DQR0TGc/126.jpg" alt="" />
+                <img className="w-[50px] h-[50px] rounded-[50%] object-cover" src={chat[1].userInfo.photoURL} alt="" />
                 <div className="userChatinfo">
-                    <span className="text-xl font-bold">{chat[1].displayName}</span>
-                    <p className="text-base text-gray-500">{chat[1].lastMessage?.text}</p>
+                    <span className="text-xl font-bold">{chat[1].userInfo.displayName}</span>
+                    <p className="text-base text-gray-500">{chat[1].userInfo.lastMessage?.text}</p>
                 </div>
             </div>
             ))}
