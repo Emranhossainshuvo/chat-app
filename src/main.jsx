@@ -9,11 +9,12 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import { AuthContextProvider } from './context/AuthContext';
+import PrivateRoute from './PrivateRoutes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <PrivateRoute><Home /></PrivateRoute>,
   },
   {
     path: '/register',
