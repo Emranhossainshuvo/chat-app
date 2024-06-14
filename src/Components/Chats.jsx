@@ -35,7 +35,7 @@ const Chats = () => {
         <div className="chats">
             {Object.entries(chats)?.map(chat=> (
 
-                <div key={chat[0]} className="userchat p-3 flex items-center gap-10 cursor-pointer hover:bg-gray-600">
+                <div key={chat[0]} className="userchat p-3 flex items-center gap-10 cursor-pointer hover:bg-gray-600" onClick={()=>handleSelect(chat[1].userInfo)}>
                 <img className="w-[50px] h-[50px] rounded-[50%] object-cover" src={chat[1].userInfo.photoURL} alt="" />
                 <div className="userChatinfo">
                     <span className="text-xl font-bold">{chat[1].userInfo.displayName}</span>

@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import { AuthContextProvider } from './context/AuthContext';
 import PrivateRoute from './PrivateRoutes/PrivateRoute';
+import { ChatContext } from './context/ChatContext';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <RouterProvider router={router} />
-    </AuthContextProvider>
+    <ChatContext>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
+    </ChatContext>
   </React.StrictMode>,
 )
