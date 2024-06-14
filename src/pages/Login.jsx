@@ -1,6 +1,28 @@
-import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 const Login = () => {
+
+    const [err, setErr] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const email = e.target[0].value;
+        const password = e.target[1].value;
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+            navigate('/')
+           
+        } catch {
+            setErr(true)
+        }
+
+    }
+
     return (
         <>
             {/* section that will hold everything in this file */}
@@ -9,7 +31,7 @@ const Login = () => {
                 <section className="bg-[#f1f1f2] w-[24%] rounded-xl">
                     <h3 className="text-center text-3xl font-semibold mb-2 mt-3">Talks chat</h3>
                     <p className="text-center mb-4 text-xl font-semibold">Login</p>
-                    <form className="flex flex-col gap-7 px-10">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-7 px-10">
                         <input placeholder="Email" className="h-10 outline-none ps-3 rounded-md" type="email" name="" id="" />
                         <input placeholder="Password" className="h-10 outline-none ps-3 rounded-md" type="password" name="" id="" />
                         
