@@ -36,6 +36,7 @@ const Login = () => {
                         <input placeholder="Password" className="h-10 outline-none ps-3 rounded-md" type="password" name="" id="" />
                         
                         <input className="h-10 cursor-pointer bg-[#31473a] text-white text-lg font-semibold rounded-md" type="submit" value="Login" />
+                        {err && <span className="text-red-600">Something went wrong</span>}
                     </form>
                     <p className="text-center my-4">Don&apos;t have an account?<Link to={"/register"}>Register</Link></p>
                 </section>
