@@ -14,7 +14,7 @@ const Navbar = () => {
             </span>
             <div className="flex gap-10">
                 <img className="bg-white h-6 w-6 rounded-[50%] object-cover" src={currentUser.photoURL} alt="" />
-                <span>John</span>
+                <span>{currentUser.displayName}</span>
                 <button onClick={() => signOut(auth)} className="bg-purple-800 text-gray-200 text-xs rounded-md border-none p-2">Log out</button>
             </div>
         </div>
