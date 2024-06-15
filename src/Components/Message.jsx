@@ -15,7 +15,7 @@ const Message = ({ message }) => {
     }, [message]);
 
     return (
-        <div className={`messege ${message.senderId === currentUser.uid && "owner"} owner mb-[20px] flex gap-[20px]`}>
+        <div ref={ref} className={`messege ${message.senderId === currentUser.uid && "owner"} owner mb-[20px] flex gap-[20px]`}>
             <div className="messageInfo flex flex-col text-gray-600 font-normal">
                 <img className="w-[40px] h-[40px] rounded-[50%] object-cover" src={
                     message.senderId === currentUser.uid
