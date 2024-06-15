@@ -29,7 +29,7 @@ const Input = () => {
             uploadTask.on(
                 (error) => {
                     //TODO:Handle Error
-                    
+
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -37,9 +37,9 @@ const Input = () => {
                             messages: arrayUnion({
                                 id: uuid(),
                                 text,
-                                senderId: currentUser.uid,
+                                senderId: currentUser.uid, 
                                 date: Timestamp.now(),
-                                img: downloadURL,
+                                img: downloadURL, 
                             }),
                         });
                     });
@@ -73,6 +73,7 @@ const Input = () => {
         setText("");
         setImg(null);
     };
+    
 
     return (
         <div className="input h-[50px] flex items-center justify-between bg-white p-2">
